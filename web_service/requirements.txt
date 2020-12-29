@@ -1,0 +1,8 @@
+Flask
+Flask-Session
+python-dotenv
+redis
+gunicorn
+bcrypt
+pyjwt
+uuid
