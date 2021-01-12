@@ -8,7 +8,7 @@ from jwt import encode, decode
 import jwt
 from uuid import uuid4
 import json
-
+ 
 load_dotenv()
 REDIS_HOST = getenv("REDIS_HOST")
 REDIS_PASS = getenv("REDIS_PASS")
@@ -288,22 +288,44 @@ def register():
     return validate_input(firstname, lastname,
                           login, password, sec_password, question, answer)
 
+def set_delay(data, delay_cookie=None):
+    data["is_valid"] = False
+    delay=1
+    payload = {
+        "delay_time":delay
+    }
+    if delay_cookie is not None:
+        decoded = None
+        try:
+            decoded = decode(delay_cookie, JWT_SECRET, algorithms=['HS256'])
+        except Exception as e:
+            delay = 200
+            payload["delay"] = delay
+            return False
+        delay = pow(decoded.get("delay_time")+0.1,2)
+        payload["delay_time"] = delay
+    cookie = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
+    data["cookie"] = cookie
+    return True
 
 @app.route("/root/sender/login", methods=['POST'])
 def login():
     cli_data = request.json
     login = cli_data.get('login')
     password = cli_data.get('password')
+    delay_cookie = request.headers.get("delay_cookie")
 
     messages = []
     data = {
         "messages": messages,
         "is_valid": True,
-        "cookies": None
+        "cookie": None
     }
     if not verify_user(login, password):
         messages.append("Podano nieprawidłowy login lub hasło")
-        data["is_valid"] = False
+        if not set_delay(data, delay_cookie):
+            messages.append("Wykryto próbę ataku na ciasteczko")
+            return data
         return data
 
     messages.append("Zalogowano!")
@@ -312,7 +334,7 @@ def login():
         "date": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     }
     cookie = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
-    data["cookies"] = cookie
+    data["cookie"] = cookie
     return data
 
 

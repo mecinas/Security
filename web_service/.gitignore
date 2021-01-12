@@ -1,1 +1,5 @@
 .env
+web_service/.env
+web_service/.git
+web/.env
+web/.git
