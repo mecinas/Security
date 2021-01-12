@@ -6,9 +6,7 @@ from datetime import datetime
 from uuid import uuid4
 import json
 
-#brute force obrona zamiast ciasteczka baza danych
-
-#Obrona przed XSS
+#zrobić plik .sock
 #Atak od strony postman, ponowna walidacja danych od walidowanych przez js
 
 load_dotenv()
@@ -193,6 +191,10 @@ def post_recoverPswd():
     login = request.form.get("login")
     url = WEB_SEVICE_URL + "/root/recover/check/" + login
     api_response = requests.get(url=url)
+
+    if(api_response.status_code >= 400):
+        return make_response('Błąd w połączeniu z serwerem', 500)
+
     api_response_data = json.loads(api_response.content)
     if api_response_data.get("availability") == "available":
         flash("Podany login nie istnieje")

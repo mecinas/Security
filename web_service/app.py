@@ -5,10 +5,13 @@ from dotenv import load_dotenv
 from bcrypt import hashpw, gensalt, checkpw
 from datetime import datetime
 from jwt import encode, decode
+from time import sleep
 import jwt
 from uuid import uuid4
 import json
+
  
+
 load_dotenv()
 REDIS_HOST = getenv("REDIS_HOST")
 REDIS_PASS = getenv("REDIS_PASS")
@@ -178,7 +181,7 @@ def show_private_notes():
 def check_login(login):
     if request.method == 'OPTIONS':
         return allowed_methods(['GET', 'POST'])
-
+    print(login)
     data = {login: "available"}
     if is_login(login):
         data = {login: "taken"}
@@ -238,6 +241,8 @@ def verify_user(login, password):
         f"user:{login}", "password")
     if not hashed_password_database:
         return False
+    print(checkpw(password_encoded, hashed_password_database.encode('utf-8')))
+    
     return checkpw(password_encoded, hashed_password_database.encode('utf-8'))
 
 def save_user(firstname, lastname, login, password, question, answer):
@@ -304,6 +309,7 @@ def set_delay(data, delay_cookie=None):
             return False
         delay = pow(decoded.get("delay_time")+0.1,2)
         payload["delay_time"] = delay
+    sleep(delay)
     cookie = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
     data["cookie"] = cookie
     return True
@@ -353,7 +359,7 @@ def post_changePswd():
     token = request.headers.get("cookie")
     if not authorizate(data, token):
         return data
-
+    login = g.authorization.get("login")
     if not verify_user(login, old_pswd):
         messages.append("Podane hasło jest nieprawidłowe")
         return data
