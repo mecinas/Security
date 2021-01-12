@@ -1,0 +1,135 @@
+html {
+    min-width: 550px;
+    position: relative;
+    background-color: khaki;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.nav_bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.left_align {
+    margin: 0;
+    float: left;
+}
+
+.right_align {
+    margin: 0;
+    float: right;
+}
+
+.nav_bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav_bar li a:hover {
+    background-color: #111;
+}
+
+.opening_div {
+    padding-bottom: 15%;
+}
+
+.opening_div img {
+    width: 60%;
+    height: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.opening_div header h5 {
+    padding-top: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.opening_div .company_logo {
+    width: 50%;
+    float: left;
+}
+
+.opening_div .company_about {
+    padding-top: 10%;
+    width: 50%;
+    float: right;
+}
+
+.company_rules {
+    padding-top: 200px;
+}
+
+.company_rules h2 {
+    text-align: center;
+}
+
+.company_rules ul {
+    display: flex
+}
+
+.company_rules ul li {
+    margin-bottom: 70px;
+    list-style-type: none;
+    width: 33%;
+    height: 33%;
+}
+
+.company_rules .time {
+    width: 100%;
+    height: 90%;
+    padding-top: 10%;
+    padding-bottom: 16%;
+}
+
+.company_rules .price {
+    width: 70%;
+    height: 60%;
+}
+
+.company_rules .save {
+    width: 70%;
+    height: 60%;
+    padding-top: 6%;
+    padding-bottom: 5%;
+}
+
+.footer_div{
+    position: relative;
+    width: 100%;
+    height: 10%;
+}
+
+footer {
+    bottom: 0px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    color: hotpink;
+}
+
+footer a:hover {
+    color: greenyellow;
+}

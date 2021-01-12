@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Określ swój login</title>
+<link rel="stylesheet" href="/static/style/recoverVerify.css">
+{% endblock %}
+
+{% block content %}
+<div class="login_div">
+    <h2>
+        Podaj swój login aby móc odzyskać hasło
+    </h2>
+    <form class="login_table" method="POST" action="/sender/recoverPswd" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input id="login" type="text" name="login" placeholder="Login">
+            </li>
+
+            <li><input id="submit_button" type="submit" value="Odzyskaj hasło"></input></li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+@import "layout.css";
+
+.content_div {
+    position: sticky;
+    width: 1150px;
+    height: 400px;
+    left: 20%;
+    margin: 200px 0 0 -50px;
+}
+.content_div h2 {
+    text-align: center;
+}
+.content_div ul {
+    list-style-type: none;
+    text-align: center;
+}
+.content_div ul li {
+    justify-content: center;
+    position: relative;
+}
+
+.content_div ul li .error_label{
+    position: absolute;
+    left: 650px;
+    color: red;
+    display: none;
+}
+
+.content_div ul li #submit_button{
+    cursor: not-allowed;
+    pointer-events: none;
+}

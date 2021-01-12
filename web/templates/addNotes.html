@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Notatki</title>
+<link rel="stylesheet" href="/static/style/addNotes.css">
+{% endblock %}
+
+{% block content %}
+<div class="notes_div">
+    <h2>
+        Dodaj swoje notatki
+    </h2>
+    <form class="note_table" method="POST" action="/sender/addNotes" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <textarea id="note_input" name="note" rows="4" cols="50">
+                Wprowadź notatkę
+                </textarea>
+            </li>
+
+            <li>
+                <label for="acess">Wybierz dostęp</label>
+                <select name="access" id="access">
+                    <option value="public">Publiczny</option>
+                    <option value="private">Prywatny</option>
+                  </select>
+            </li>
+            <li><input id="submit_button" type="submit" value="Zapisz notatkę"></input></li>
+        </ul>
+
+    </form>
+</div>
+
+{% endblock %}

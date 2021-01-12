@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="/static/style/layout.css">
+    {% endblock %}
+</head>
+
+<body>
+        <nav class="nav_bar">
+            <ul>
+                <li class="left_align"><a href="/">Strona główna</a></li>
+                <li class="left_align"><a href="/sender/register">Zarajestruj się</a></li>
+                <li class="left_align"><a href="/sender/login">Zaloguj się</a></li>
+                <li class="left_align"><a href="/sender/addNotes">Dodaj Notatkę</a></li>
+                <li class="left_align"><a href="/sender/publicNotes">Notatki Publiczne</a></li>
+                <li class="left_align"><a href="/sender/privateNotes">Notatki Prywatne</a></li>
+                <li class="right_align"><a href="/sender/logout">Wyloguj się</a></li>
+                <li class="right_align"><a href="/sender/changePswd">Zmień hasło</a></li>
+            </ul>
+        </nav>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+
+        <footer class="site-footer">
+            <a href="https://github.com/mecinas/PAMW-project.git">Link do źródła</a>
+            <p>Obecny rok:
+                <script>document.write(new Date().getFullYear())</script>
+            </p>
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Zmiana hasła</title>
+<link rel="stylesheet" href="/static/style/changePswd.css">
+<script src="/static/codeJS/changePswd.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="content_div">
+    <h2>
+        Zmień swoje hasło
+    </h2>
+    <form class="login_table" method="POST" action="/sender/changePswd" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input id="old_pswd" type="password" name="old_pswd" placeholder="Stare hasło">
+            </li>
+
+            <li>
+                <input id="new_pswd" type="password" name="new_pswd" placeholder="Nowe hasło">
+                <label class="error_label" id="passwd_err">Hasło musi posiadać co najmniej 8 znaków</label>
+                <label class="error_label" id="passwd_warning">Dopuszczalne, acz słabe hasło</label>
+            </li>
+
+            <li>
+                <input id="new_pswd2" type="password" name="new_pswd2" placeholder="Powtórz nowe hasło">
+                <label class="error_label" id="passwd2_err">Hasła muszą być identyczne!</label>
+            </li>
+
+            <li><input id="submit_button" type="submit" value="Zmień hasło"></input></li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

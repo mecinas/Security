@@ -1,0 +1,34 @@
+@import "layout.css";
+
+.registration_div {
+    position: sticky;
+    width: 1150px;
+    height: 400px;
+    left: 20%;
+    margin: 200px 0 0 -50px;
+}
+.registration_div h2 {
+    text-align: center;
+}
+.registration_div ul {
+    list-style-type: none;
+    text-align: center;
+}
+.registration_table ul li {
+    justify-content: center;
+    position: relative;
+}
+
+.registration_table ul li .error_label{
+    position: absolute;
+    left: 650px;
+    color: red;
+    display: none;
+}
+.registration_table ul li #file_input{
+    color: transparent;
+}
+.registration_table ul li #submit_button{
+    cursor: not-allowed;
+    pointer-events: none;
+}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Rejestracja</title>
+<link rel="stylesheet" href="/static/style/register.css">
+<script src="/static/codeJS/register.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="registration_div">
+    <h2>
+        Zerejestruj się już dziś, a otrzymasz darmowy voucher w wysokości 20 zł na pierwsze przesyłki.
+    </h2>
+    <form class="registration_table" method="POST" action="/sender/register" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input id="name_input" type="text" name="firstname" placeholder="Imię">
+                <label class="error_label" id="name_err">Imię musi zaczynać się od wielkiej litery, a następnie
+                    małę litery</label>
+            </li>
+
+            <li>
+                <input id="lastname_input" type="text" name="lastname" placeholder="Nazwisko">
+                <label class="error_label" id="surname_err">Nazwisko musi zaczynać się od wielkiej litery, a
+                    następnie małę litery</label>
+            </li>
+
+            <li>
+                <input id="login_input" type="text" name="login" placeholder="Login">
+                <label class="error_label" id="log_len_err">Login musi się składać z małych od 3 do 12 liter</label>
+                <label class="error_label" id="log_taken_err">Login jest już zajęty</label>
+                <label class="error_label" id="log_word_err">Login musi się składać wyłącznie z małych liter</label>
+            </li>
+
+            <li>
+                <input id="password_input" type="password" name="password" placeholder="Hasło">
+                <label class="error_label" id="passwd_err">Hasło musi posiadać co najmniej 8 znaków</label>
+                <label class="error_label" id="passwd_warning">Dopuszczalne, acz słabe hasło</label>
+            </li>
+
+            <li>
+                <input id="password2_input" type="password" name="sec_password" placeholder="Powtórz hasło">
+                <label class="error_label" id="passwd2_err">Hasła muszą być identyczne!</label>
+            </li>
+
+            <li>
+                <input id="question" type="text" name="question" placeholder="Pytanie pomocnicze">
+            </li>
+
+            <li>
+                <input id="answer" type="text" name="answer" placeholder="Odpowiedź na pytanie">
+            </li>
+
+            <li>
+                <label for="sex">Wybierz płeć:</label>
+                <select id="sex_input" name="sex" id="sex">
+                    <option value="M">Mężczyzna</option>
+                    <option value="F">Kobieta</option>
+                </select>
+            </li>
+
+            <li><input id="submit_button" type="submit" value="Zarajestruj"></input></li>
+
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Strona główna</title>
+    <script src="/static/codeJS/home.js" defer></script>
+    <link rel="stylesheet" href="/static/style/home.css">
+</head>
+
+<body>
+    <nav class="nav_bar">
+        <ul>
+            <li class="left_align"><a href="/">Strona główna</a></li>
+            <li class="left_align"><a href="/sender/register">Zarajestruj się</a></li>
+            <li class="left_align"><a href="/sender/login">Zaloguj się</a></li>
+            <li class="left_align"><a href="/sender/addNotes">Dodaj Notatkę</a></li>
+            <li class="left_align"><a href="/sender/publicNotes">Notatki Publiczne</a></li>
+            <li class="left_align"><a href="/sender/privateNotes">Notatki Prywatne</a></li>
+            <li class="right_align"><a href="/sender/logout">Wyloguj się</a></li>
+            <li class="right_align"><a href="/sender/changePswd">Zmień hasło</a></li>
+        </ul>
+    </nav>
+
+    <div class="opening_div">
+        <header class="company_logo">
+            <img src="/static/resources/logo_removebg.png" alt="logo">
+            <h5>Autor strony: Szymon Męcina</h5>
+        </header>
+        <div class="company_about">
+            <h3>Firma godnia zaufania</h3>
+            Od 1919 roku nasza firma świadczy usługi przesyłkowe co czyni nas najbardziej doświadczoną firmą na rynku
+            polskim. Dzięki nabtym przez dziesiątki lat doświadczeniom jestemśmy najbardziej zaufaną firmą na rynku.
+            Nasza
+            firma stawia dobro klienta na pierwszym miejscu dzięki czemu paczki dostarczane są zawsze na czas w
+            perfekcyjnym
+            stanie.
+        </div>
+    </div>
+
+    <div class="company_rules">
+        <h2>Trzy filary naszej firmy</h2>
+
+        <ul>
+            <li>
+                <img src="/static/resources/save.png" alt="save_package" class="save">
+                <p>Każde zgłoszenie udowodnione uszkodzenie paczki w trakcie transportu skutkuje natychmiastowym
+                    zwrotem
+                    pieniędzy.
+                </p>
+            </li>
+            <li>
+                <img src="/static/resources/price.png" alt="low_price" class="price">
+                <p>Nasza gwarancja najniższej ceny oferuje możliwość obniżenia kosztów przesyłki w sytuacji
+                    odnalezienia
+                    konkurencyjnej ceny przesyłki tańszej niż nasza.
+                </p>
+            </li>
+            <li>
+                <img src="/static/resources/time_removebg.png" alt="quick_delivery" class="time">
+                <p>Nasza firma oferuje zniżki procentowe ceny przesyłki proporcjonalne do procentowego opóźnienia
+                    dostarczenia
+                    paczki.
+                </p>
+        </ul>
+    </div>
+
+    <footer>
+        <a href="https://github.com/mecinas/PAMW-project.git">Link do źródła</a>
+        <p>Obecny rok:
+            <script>document.write(new Date().getFullYear())</script>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Logowanie</title>
+<!-- <script src="/static/codeJS/register.js" defer></script> -->
+<link rel="stylesheet" href="/static/style/login.css">
+{% endblock %}
+
+{% block content %}
+<div class="login_div">
+    <h2>
+        Zaloguj się do swojego konta i zyskaj pełnie możliwości Pacztex
+    </h2>
+    <form class="login_table" method="POST" action="/sender/login" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input id="login_input" type="text" name="login" placeholder="Login">
+            </li>
+
+            <li>
+                <input id="password_input" type="password" name="password" placeholder="Hasło">
+            </li>
+
+            <li><input id="submit_button" type="submit" value="Zaloguj się"></input></li>
+            <li><a href="/sender/recoverPswd">Odzyskaj hasło</a></li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

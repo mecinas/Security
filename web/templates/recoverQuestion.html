@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Pytanie kontrolne</title>
+<link rel="stylesheet" href="/static/style/recoverQuestion.css">
+{% endblock %}
+
+{% block content %}
+<div class="content_div">
+    <h2>
+        Pytanie kontrolne: {{ question }}
+    </h2>
+    <form class="login_table" method="POST" action="/sender/validate/answer" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input id="answer" type="text" name="answer" placeholder="Odpowiedź">
+            </li>
+
+            <li><input id="submit_button" type="submit" value="Prześlij odpowiedź"></input></li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

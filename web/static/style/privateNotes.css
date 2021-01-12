@@ -1,0 +1,18 @@
+@import "layout.css";
+
+.notes_div {
+    position: sticky;
+    width: 1150px;
+    height: 400px;
+    left: 20%;
+    margin: 200px 0 0 -50px;
+}
+
+.notes_div h2 {
+    text-align: center;
+}
+
+.notes_div ul {
+    list-style-type: none;
+    text-align: center;
+}
